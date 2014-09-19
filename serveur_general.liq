@@ -18,8 +18,8 @@
 
 # native input format 720x576, output must a multiple of 16 so you must
 # divide by 9.
-quality=2
-set("frame.video.width",720/9*quality) 
+quality=4
+set("frame.video.width",720/9*quality)
 set("frame.video.height",576/9*quality)
 
 
@@ -29,10 +29,12 @@ set("server.telnet.port",4540)
 minimum=mux_audio(audio=blank(),single("resources/BoucleLogo.ogv"))
 
 infini=add([blank(),minimum])
-# output.icecast(%ogg(%theora,%vorbis),description="La WebTV Planète Sciences",
-# url="http://webtv.planete-sciences.org",
-# host="planete-sciences.org",port=5080,password=motdepasse_source,
-# mount="webtv.ogv",infini)
+clock.assign_new(sync=false,id="stream_ogv",[
+output.icecast(%ogg(%theora,%vorbis),description="La WebTV Planète Sciences",
+url="http://webtv.planete-sciences.org",
+host="planete-sciences.org",port=5080,password=motdepasse_source,
+mount="webtv.ogv",infini)
+])
 
 output.icecast(id="gstreamer_webm",%gstreamer(audio="vorbisenc", video="vp8enc", muxer="webmmux"),
 description="La WebTV Planète Sciences", url="http://webtv.planete-sciences.org",
