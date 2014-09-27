@@ -21,16 +21,18 @@
 # quality=4
 # set("frame.video.width",720/9*quality)
 # set("frame.video.height",576/9*quality)
-set("frame.video.width",464)
+set("frame.video.width",416)
 set("frame.video.height",320)
-
 
 set("server.telnet",true)
 set("server.telnet.port",4540)
 
 minimum=mux_audio(audio=blank(),single("resources/BoucleLogo.ogv"))
 direct_brut=input.harbor("lelive.ogv",port=4545,password=motdepasse_live)
-melange=fallback(track_sensitive=false,[direct_brut,minimum])
+direct=switch(track_sensitive=false,[((fun () -> source.is_ready(direct_brut)),
+video.add_image(width=120,height=84,file="resources/LogoIncrustation.png",direct_brut)
+)])
+melange=fallback(track_sensitive=false,[direct,minimum])
 
 infini=add([blank(),melange])
 
