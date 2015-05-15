@@ -1,17 +1,20 @@
 This repository contains all the technical material involved in
-setting up http://webtv.planete-sciences.org.
+setting up the video streaming at http://webtv.planete-sciences.org/
 
-All the files BUT the one of the folder resources/ are released under
+All the files EXEPT the ones in the resources/ folder are released under
 GPLv3 (see COPYING).
 
-Files in resources/ folder (LogoInstructration.png, BoucleLogo.ogv)
-are not free. They cannot be used outside Planète Sciences activities.
+Files in resources/ folder are NOT free.
+They cannot be used without Planète Sciences authorization, and are
+dedicated to our own use.
 
-To make thing works, you need to create a file called passwords.liq
-containing
+To make things works, you need to create a file called "passwords.liq"
+containing:
 
 --8<------
 motdepase_source="le mot de passe"
 --8<------
 
-Copyright 2014 Planète Sciences
+
+Copyright 2014 - Association Planète Sciences
+http://www.planete-sciences.org/
