@@ -1,0 +1,2 @@
+#!/bin/bash
+avconv -i $1 -target pal-dv - | dvsource-file -h webtv-dump.local -p 4543 /dev/stdin

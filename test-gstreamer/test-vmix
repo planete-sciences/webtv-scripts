@@ -1,0 +1,5 @@
+#!/bin/bash
+avconv -i $1 -target pal-dv - | gst-launch-1.0 -v fdsrc ! dvdemux name=dv \
+mpegtsmux name=mux ! udpsink host=192.168.30.181 port=1234 \
+dv.video ! dvdec ! queue ! videoconvert ! x264enc ! mux.
+#dv.audio ! queue ! audioconvert ! avenc_aac ! mux.

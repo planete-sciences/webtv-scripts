@@ -1,0 +1,7 @@
+#!/bin/bash
+dvsink-command -h webtv-dump.local -p 4543 -- gst-launch-1.0 -v fdsrc ! dvdemux name=dv \
+flvmux name=mux ! rtmpsink location="rtmp://webtv.planete-sciences.org/WebTV/direct live=1" \
+dv.video ! dvdec ! tee name=vmon ! queue ! videoconvert ! avenc_flv ! mux.video \
+dv.audio ! tee name=amon ! queue ! audioconvert ! avenc_aac ! mux.audio \
+vmon. ! queue ! clockoverlay ! xvimagesink sync=false \
+amon. ! queue ! pulsesink sync=false

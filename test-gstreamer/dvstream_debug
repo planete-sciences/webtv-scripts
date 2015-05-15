@@ -1,0 +1,5 @@
+#!/bin/bash
+rm -rf /tmp/gsdebug
+mkdir /tmp/gsdebug
+GST_DEBUG=3 GST_DEBUG_DUMP_DOT_DIR=/tmp/gsdebug/ ./dvstream
+dot -Tpng /tmp/gsdebug/*.PAUSED_PLAYING.dot > dvstream-pipeline.png

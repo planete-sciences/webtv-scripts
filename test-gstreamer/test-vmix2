@@ -1,0 +1,2 @@
+#!/bin/sh
+gst-launch-1.0 videotestsrc ! clockoverlay ! videoconvert ! x264enc ! mpegtsmux ! udpsink host=192.168.30.181 port=1234
