@@ -1,10 +1,10 @@
 #!/bin/sh
 
-## Quand c'est cassé ou qu'on modifie quelque chose, on le dit sur gitolite
+## Quand c'est cassé ou qu'on modifie quelque chose, on le dit sur github
 ## ou l'on prévient l'auteur pierre.boutillier@PLASCI afin d'en laisser la trace
 
 # Copyright 2013 Planète Sciences
-# This file is part of webtv-plasci
+# This file is part of webtv-scripts
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
